@@ -9,6 +9,12 @@ const envSchema = z.object({
   ]),
   APP_URL: z.url(),
   DATABASE_URL: z.url(),
+  PRISMA_LOG_LEVEL: z.enum([
+    "query",
+    "info",
+    "warn",
+    "error",
+  ]).default("error"),
   AUTH_SECRET: z.string().min(32),
   AUTH_EXPIRES: z.string(),
 });

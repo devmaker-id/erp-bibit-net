@@ -6,3 +6,97 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Company {
+  id            String    @id @default(cuid())
+
+  code          String
+  name          String
+  legalName     String?
+
+  email         String?
+  phone         String?
+  website       String?
+
+  taxNumber     String?
+
+  address       String?
+  city          String?
+  province      String?
+  postalCode    String?
+  countryCode   String?
+
+  timezone      String?
+  currencyCode  String?
+
+  logo          String?
+  description   String?
+
+  isActive      Boolean   @default(true)
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deletedAt     DateTime?
+
+  branches      Branch[]
+  warehouses    Warehouse[]
+
+  @@unique([code])
+  @@unique([name])
+
+  @@map("companies")
+}
+
+model Branch {
+  id String @id @default(cuid())
+  companyId String
+  code String
+  name String
+  email String?
+  phone String?
+  address String?
+  city String?
+  province String?
+  postalCode String?
+  countryCode String?
+  timezone String?
+  description String?
+
+  isHeadOffice Boolean @default(false)
+  isActive Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  company Company @relation(fields:[companyId], references:[id])
+  
+  warehouses Warehouse[]
+
+  @@unique([companyId, code], name: "companyId_code")
+  @@index([companyId])
+  @@index([companyId, isActive])
+
+  @@map("branches")
+}
+
+model Warehouse {
+  id String @id @default(cuid())
+  companyId String
+  branchId String
+  code String
+  name String
+  description String?
+  isActive Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  company Company @relation(fields:[companyId], references:[id])
+  branch Branch @relation(fields:[branchId], references:[id])
+
+  @@unique([companyId, branchId, code], name: "companyId_branchId_code")
+  @@index([companyId, isActive])
+  @@index([branchId, isActive])
+  @@index([companyId])
+  @@index([branchId])
+
+  @@map("warehouses")
+}

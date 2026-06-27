@@ -1,12 +1,24 @@
 {
   "name": "erp-bibit-net",
+  "author": {
+    "name": "devmaker-id",
+    "url": "https://github.com/devmaker-id/erp-bibit-net"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "prisma:reset": "prisma migrate reset",
+    "db:seed": "tsx --env-file=.env src/database/seeders/index.ts",
+    "db:reset": "tsx --env-file=.env src/database/reset.ts",
+    "db:backup": "tsx --env-file=.env src/database/backup.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
