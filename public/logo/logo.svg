@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="64" viewBox="0 0 220 64" fill="none">
+    <!-- Leaf -->
+    <path d="M24 30C16 30 10 24 10 16C18 16 24 22 24 30Z" fill="#22C55E"/>
+    <path d="M24 30C32 30 38 24 38 16C30 16 24 22 24 30Z" fill="#16A34A"/>
+    <path d="M24 44V29" stroke="#166534" stroke-width="3" stroke-linecap="round"/>
+    <path d="M19 45H29" stroke="#166534" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Text -->
+    <text
+        x="54"
+        y="28"
+        font-size="20"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="700"
+        fill="#111827">
+        ERP
+    </text>
+
+    <text
+        x="54"
+        y="50"
+        font-size="16"
+        font-family="Arial, Helvetica, sans-serif"
+        fill="#4B5563">
+        Bibit Net
+    </text>
+</svg>

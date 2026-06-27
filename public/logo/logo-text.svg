@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="64" viewBox="0 0 240 64">
+
+    <text
+        x="0"
+        y="28"
+        font-size="22"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="700"
+        fill="#111827">
+        ERP Bibit Net
+    </text>
+
+    <text
+        x="0"
+        y="52"
+        font-size="14"
+        font-family="Arial, Helvetica, sans-serif"
+        fill="#6B7280">
+        Enterprise Resource Planning
+    </text>
+
+</svg>
