@@ -53,7 +53,13 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   Company: 'Company',
   Branch: 'Branch',
-  Warehouse: 'Warehouse'
+  Warehouse: 'Warehouse',
+  Permission: 'Permission',
+  Role: 'Role',
+  RolePermission: 'RolePermission',
+  User: 'User',
+  Membership: 'Membership',
+  Session: 'Session'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -137,6 +143,110 @@ export const WarehouseScalarFieldEnum = {
 } as const
 
 export type WarehouseScalarFieldEnum = (typeof WarehouseScalarFieldEnum)[keyof typeof WarehouseScalarFieldEnum]
+
+
+export const PermissionScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  module: 'module',
+  group: 'group',
+  description: 'description',
+  sortOrder: 'sortOrder',
+  isSystem: 'isSystem',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type PermissionScalarFieldEnum = (typeof PermissionScalarFieldEnum)[keyof typeof PermissionScalarFieldEnum]
+
+
+export const RoleScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  description: 'description',
+  level: 'level',
+  sortOrder: 'sortOrder',
+  isSystem: 'isSystem',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type RoleScalarFieldEnum = (typeof RoleScalarFieldEnum)[keyof typeof RoleScalarFieldEnum]
+
+
+export const RolePermissionScalarFieldEnum = {
+  id: 'id',
+  roleId: 'roleId',
+  permissionId: 'permissionId',
+  grantedById: 'grantedById',
+  grantedAt: 'grantedAt',
+  isActive: 'isActive'
+} as const
+
+export type RolePermissionScalarFieldEnum = (typeof RolePermissionScalarFieldEnum)[keyof typeof RolePermissionScalarFieldEnum]
+
+
+export const UserScalarFieldEnum = {
+  id: 'id',
+  username: 'username',
+  email: 'email',
+  password: 'password',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  avatar: 'avatar',
+  phone: 'phone',
+  emailVerifiedAt: 'emailVerifiedAt',
+  lastLoginAt: 'lastLoginAt',
+  lastLoginIp: 'lastLoginIp',
+  failedLoginAttempts: 'failedLoginAttempts',
+  lockedAt: 'lockedAt',
+  isSystem: 'isSystem',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const MembershipScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  companyId: 'companyId',
+  branchId: 'branchId',
+  roleId: 'roleId',
+  employeeNumber: 'employeeNumber',
+  title: 'title',
+  joinedAt: 'joinedAt',
+  resignedAt: 'resignedAt',
+  isDefault: 'isDefault',
+  isActive: 'isActive'
+} as const
+
+export type MembershipScalarFieldEnum = (typeof MembershipScalarFieldEnum)[keyof typeof MembershipScalarFieldEnum]
+
+
+export const SessionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  membershipId: 'membershipId',
+  sessionToken: 'sessionToken',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  expiresAt: 'expiresAt',
+  lastActivityAt: 'lastActivityAt',
+  revokedAt: 'revokedAt',
+  isActive: 'isActive'
+} as const
+
+export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
 
 
 export const SortOrder = {

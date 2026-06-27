@@ -40,9 +40,9 @@ model Company {
 
   branches      Branch[]
   warehouses    Warehouse[]
+  memberships   Membership[]
 
   @@unique([code])
-  @@unique([name])
 
   @@map("companies")
 }
@@ -70,6 +70,7 @@ model Branch {
   company Company @relation(fields:[companyId], references:[id])
   
   warehouses Warehouse[]
+  memberships Membership[]
 
   @@unique([companyId, code], name: "companyId_code")
   @@index([companyId])
@@ -99,4 +100,196 @@ model Warehouse {
   @@index([branchId])
 
   @@map("warehouses")
+}
+
+model Permission {
+  id          String   @id @default(cuid())
+
+  code        String
+  name        String
+
+  module      String
+  group       String
+
+  description String?
+
+  sortOrder   Int      @default(0)
+
+  isSystem    Boolean  @default(true)
+  isActive    Boolean  @default(true)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+
+  rolePermissions RolePermission[]
+
+  @@unique([code])
+
+  @@index([module])
+  @@index([group])
+  @@index([isActive])
+  @@index([module, group])
+  @@index([module, group, sortOrder])
+
+  @@map("permissions")
+}
+
+model Role {
+  id String @id @default(cuid())
+
+  code String
+  name String
+  description String?
+
+  level Int @default(0)
+  sortOrder Int @default(0)
+
+  isSystem Boolean @default(true)
+  isActive Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  rolePermissions RolePermission[]
+  memberships Membership[]
+
+  @@unique([code])
+
+  @@index([level])
+  @@index([sortOrder])
+  @@index([isActive])
+  @@index([level, isActive])
+
+  @@map("roles")
+}
+
+model RolePermission {
+  id String @id @default(cuid())
+
+  roleId String
+  permissionId String
+
+  grantedById String?
+  grantedAt DateTime @default(now())
+
+  isActive Boolean @default(true)
+
+  role Role @relation(fields: [roleId], references: [id])
+  permission Permission @relation(fields: [permissionId], references: [id])
+
+  @@unique([roleId, permissionId])
+
+  @@index([roleId])
+  @@index([permissionId])
+  @@index([isActive])
+
+  @@map("role_permissions")
+}
+
+model User {
+  id String @id @default(cuid())
+
+  username String?
+  email String
+  password String
+
+  firstName String
+  lastName String?
+
+  avatar String?
+  phone String?
+
+  emailVerifiedAt DateTime?
+
+  lastLoginAt DateTime?
+  lastLoginIp String?
+
+  failedLoginAttempts Int @default(0)
+  lockedAt DateTime?
+
+  isSystem Boolean @default(false)
+  isActive Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  memberships Membership[]
+  sessions Session[]
+
+  @@unique([username])
+  @@unique([email])
+
+  @@index([username])
+  @@index([email])
+  @@index([isActive])
+
+  @@map("users")
+}
+
+model Membership {
+  id String @id @default(cuid())
+
+  userId String
+  companyId String
+  branchId String
+  roleId String
+
+  employeeNumber String?
+  title String?
+
+  joinedAt DateTime @default(now())
+  resignedAt DateTime?
+
+  sessions Session[]
+
+  isDefault Boolean @default(false)
+  isActive Boolean @default(true)
+
+  user User @relation(fields: [userId], references: [id])
+  company Company @relation(fields: [companyId], references: [id])
+  branch Branch @relation(fields: [branchId], references: [id])
+  role Role @relation(fields: [roleId], references: [id])
+
+  @@unique([userId, companyId, branchId, roleId])
+
+  @@index([userId, isDefault])
+  @@index([companyId, branchId])
+  @@index([branchId])
+  @@index([roleId])
+  @@index([isActive])
+
+  @@map("memberships")
+}
+
+model Session {
+  id String @id @default(cuid())
+
+  userId String
+  membershipId String
+
+  sessionToken String
+
+  ipAddress String?
+  userAgent String?
+
+  expiresAt DateTime
+  lastActivityAt DateTime?
+  revokedAt DateTime?
+
+  isActive Boolean @default(true)
+
+  user User @relation(fields: [userId], references: [id])
+  membership Membership @relation(fields: [membershipId], references: [id])
+
+  @@unique([sessionToken])
+
+  @@index([userId])
+  @@index([membershipId])
+  @@index([expiresAt])
+  @@index([isActive])
+
+  @@map("sessions")
 }

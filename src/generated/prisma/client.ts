@@ -56,3 +56,33 @@ export type Branch = Prisma.BranchModel
  * 
  */
 export type Warehouse = Prisma.WarehouseModel
+/**
+ * Model Permission
+ * 
+ */
+export type Permission = Prisma.PermissionModel
+/**
+ * Model Role
+ * 
+ */
+export type Role = Prisma.RoleModel
+/**
+ * Model RolePermission
+ * 
+ */
+export type RolePermission = Prisma.RolePermissionModel
+/**
+ * Model User
+ * 
+ */
+export type User = Prisma.UserModel
+/**
+ * Model Membership
+ * 
+ */
+export type Membership = Prisma.MembershipModel
+/**
+ * Model Session
+ * 
+ */
+export type Session = Prisma.SessionModel

@@ -9,7 +9,7 @@
 > * Multi Branch
 > * Multi Warehouse
 > * Modular Architecture
-> * Domain Driven Design
+> * Domain Driven Design (DDD)
 > * Monolithic Next.js
 
 ---
@@ -29,9 +29,9 @@ Membangun pondasi teknis aplikasi.
 
 ---
 
-# Phase 2 — Domain Foundation
+# Phase 2 — Architecture Foundation
 
-Membangun standar arsitektur dan pola pengembangan.
+Membangun standar arsitektur aplikasi.
 
 * [x] Module Standard
 * [x] Module Blueprint
@@ -43,59 +43,177 @@ Membangun standar arsitektur dan pola pengembangan.
 
 ---
 
-# Phase 3 — Core Organization
+# Phase 3 — Backend Foundation
+
+Membangun pondasi backend yang digunakan oleh seluruh domain.
+
+* [x] Core Error System
+* [x] Response Contract
+* [x] Safe Action
+* [x] Logger
+* [x] Database Layer
+* [x] Repository Layer
+* [x] Service Layer
+* [x] Validation Layer
+
+---
+
+# Phase 4 — Core Organization
+
 Membangun struktur organisasi perusahaan.
 
-## Phase 3.1 — [ ] Companies
-- [x] Domain
-- [x] Prisma Model
-- [x] Migration
-- [ ] Validator
-- [ ] Repository
-- [ ] Service
-- [ ] Action
-- [ ] UI
-- [ ] Testing
+## Phase 4.1 — Companies
 
-## Phase 3.2 — [ ] Branches
-- [x] Domain
-- [x] Prisma Model
-- [x] Migration
-- [ ] Validator
-- [ ] Repository
-- [ ] Service
-- [ ] Action
-- [ ] UI
-- [ ] Testing
-
-## Phase 3.3 — [ ] Warehouses
-- [x] Domain
-- [x] Prisma Model
-- [x] Migration
-- [ ] Validator
-- [ ] Repository
-- [ ] Service
-- [ ] Action
-- [ ] UI
-- [ ] Testing
----
-
-# Phase 4 — Access Control
-
-Membangun sistem keamanan aplikasi.
-
-* [ ] Roles
-* [ ] Permissions
-* [ ] Users
-* [ ] Sessions
-* [ ] Authentication
-* [ ] Authorization (RBAC)
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [x] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] UI
+* [ ] Testing
 
 ---
 
-# Phase 5 — Master Data
+## Phase 4.2 — Branches
 
-Membangun data utama ERP.
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [x] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] UI
+* [ ] Testing
+
+---
+
+## Phase 4.3 — Warehouses
+
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [x] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] UI
+* [ ] Testing
+
+---
+
+# Phase 5 — Identity & Access Management (IAM)
+
+Membangun Authentication dan Authorization.
+
+## Phase 5.1 — Permission
+
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [ ] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] Testing
+
+---
+
+## Phase 5.2 — Role
+
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [ ] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] Testing
+
+---
+
+## Phase 5.3 — Role Permission
+
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [x] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] Testing
+
+---
+
+## Phase 5.4 — User
+
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [x] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] Testing
+
+---
+
+## Phase 5.5 — Membership
+
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [x] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] Testing
+
+---
+
+## Phase 5.6 — Session
+
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [x] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] Testing
+
+---
+
+## Phase 5.7 — Authentication
+
+* [ ] Login
+* [ ] Logout
+* [ ] Refresh Session
+* [ ] Current User
+
+---
+
+## Phase 5.8 — Authorization
+
+* [ ] RBAC
+* [ ] Permission Guard
+* [ ] Middleware
+* [ ] Workspace Switcher
+
+---
+
+# Phase 6 — Master Data
 
 * [ ] Categories
 * [ ] Products
@@ -104,9 +222,7 @@ Membangun data utama ERP.
 
 ---
 
-# Phase 6 — Inventory
-
-Membangun sistem persediaan.
+# Phase 7 — Inventory
 
 * [ ] Stock
 * [ ] Stock Movement
@@ -116,9 +232,7 @@ Membangun sistem persediaan.
 
 ---
 
-# Phase 7 — Purchasing
-
-Membangun siklus pembelian.
+# Phase 8 — Purchasing
 
 * [ ] Purchase Requests
 * [ ] Purchase Orders
@@ -128,9 +242,7 @@ Membangun siklus pembelian.
 
 ---
 
-# Phase 8 — Sales
-
-Membangun siklus penjualan.
+# Phase 9 — Sales
 
 * [ ] Quotations
 * [ ] Sales Orders
@@ -141,9 +253,7 @@ Membangun siklus penjualan.
 
 ---
 
-# Phase 9 — Reporting
-
-Pelaporan operasional.
+# Phase 10 — Reporting
 
 * [ ] Dashboard Analytics
 * [ ] Sales Report
@@ -155,9 +265,7 @@ Pelaporan operasional.
 
 ---
 
-# Phase 10 — System Administration
-
-Administrasi aplikasi.
+# Phase 11 — System Administration
 
 * [ ] Company Settings
 * [ ] Branch Settings
@@ -169,9 +277,7 @@ Administrasi aplikasi.
 
 ---
 
-# Phase 11 — Platform
-
-Pengembangan platform jangka panjang.
+# Phase 12 — Platform
 
 * [ ] Multi Currency
 * [ ] Notification Center
@@ -189,45 +295,81 @@ Pengembangan platform jangka panjang.
 
 ```text
 ✅ Phase 1 — Foundation
-✅ Phase 2 — Domain Foundation
+
+✅ Phase 2 — Architecture Foundation
+
+✅ Phase 3 — Backend Foundation
 
 🚀 Current Phase
 
-Phase 3 — Core Organization
+Phase 5.1 — Permission
 ```
+
+---
+
+# Development Workflow
+
+Setiap domain wajib mengikuti urutan berikut:
+
+```text
+Documentation
+        │
+        ▼
+Prisma Model
+        │
+        ▼
+Migration
+        │
+        ▼
+Seeder
+        │
+        ▼
+Repository
+        │
+        ▼
+Service
+        │
+        ▼
+Validator
+        │
+        ▼
+Action
+        │
+        ▼
+UI
+        │
+        ▼
+Testing
+```
+
+Tidak diperbolehkan melewati tahapan di atas.
 
 ---
 
 # Development Principle
 
-ERP Bibit Net dibangun berdasarkan prinsip berikut.
+ERP Bibit Net dibangun berdasarkan prinsip:
 
 ```text
 Foundation
-
-↓
-
+        │
+        ▼
 Architecture
-
-↓
-
+        │
+        ▼
 Convention
-
-↓
-
+        │
+        ▼
 Domain
-
-↓
-
+        │
+        ▼
 Module
-
-↓
-
+        │
+        ▼
 Feature
-
-↓
-
+        │
+        ▼
 User Interface
 ```
 
-Business Domain selalu menjadi dasar sebelum implementasi UI maupun database.
+Business Domain selalu menjadi dasar sebelum implementasi database, backend, maupun user interface.

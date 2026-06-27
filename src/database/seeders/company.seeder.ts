@@ -1,7 +1,8 @@
 import { prisma } from "@/lib/prisma";
+import { erpLogger } from "@/core";
 
-export async function seedCompanies() {
-  console.log("🌱 Seeding Company...");
+export async function seedCompany() {
+  erpLogger.info("🌱 Seeding Company...");
 
   const company = await prisma.company.upsert({
     where: {
@@ -14,14 +15,14 @@ export async function seedCompanies() {
       legalName: "PT Bibit Net Indonesia",
 
       countryCode: "ID",
-      currencyCode: "IDR",
       timezone: "Asia/Jakarta",
+      currencyCode: "IDR",
 
       isActive: true,
     },
   });
 
-  console.log("✅ Company:", company.name);
+  erpLogger.info(`✅ Company: ${company.name}`);
 
   return company;
 }
