@@ -1,21 +1,13 @@
-import { currentAuth } from "@/modules/auth/actions";
+import { notFound, redirect } from "next/navigation";
 
-export default async function HomePage() {
-  const auth = await currentAuth();
+import { getCurrentSession } from "@/modules/auth/utils/current-session";
 
-  return (
-    <main className="flex min-h-screen items-center justify-center">
-      <div className="space-y-2 text-center">
-        <h1 className="text-4xl font-bold">
-          ERP Bibit Net
-        </h1>
+export default async function CatchAllPage() {
+  const session = await getCurrentSession();
 
-        <p className="text-muted-foreground">
-          {auth
-            ? `Signed in as ${auth.user.firstName}`
-            : "Foundation v1.0"}
-        </p>
-      </div>
-    </main>
-  );
+  if (!session) {
+    redirect("/login");
+  }
+
+  notFound();
 }

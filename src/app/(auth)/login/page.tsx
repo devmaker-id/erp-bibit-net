@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { LoginCard } from "@/components/auth";
+import { LoginForm } from "@/components/auth";
 
 export const metadata: Metadata = {
   title: "Login",
@@ -8,8 +8,6 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center p-4">
-      <LoginCard />
-    </main>
+    <LoginForm />
   );
 }

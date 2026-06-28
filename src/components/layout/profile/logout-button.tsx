@@ -7,16 +7,22 @@ import { LogOut } from "lucide-react";
 import { logout } from "@/modules/auth/actions";
 
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
+import { useRouter } from "next/navigation";
 
 export function LogoutButton() {
   const [isPending, startTransition] = useTransition();
 
   function handleLogout() {
     startTransition(async () => {
-      await logout({
+      const result = await logout({
         schema: {},
         payload: {},
       });
+      const router = useRouter();
+      if (result.success) {
+        router.replace("/login");
+        router.refresh();
+      }
     });
   }
 

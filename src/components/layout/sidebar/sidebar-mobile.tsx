@@ -29,7 +29,7 @@ export function SidebarMobile({
     >
       <SheetContent
         side="left"
-        className="w-80 p-0"
+        className="w-80 p-0 overflow-y-auto bg-background"
       >
         <SheetHeader className="px-6 py-4">
           <SheetTitle>Menu</SheetTitle>
