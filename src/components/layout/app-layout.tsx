@@ -2,8 +2,9 @@ import type { ReactNode } from "react";
 
 import type { AuthSession } from "@/modules/auth/contracts";
 
-import { AppHeader } from "./app-header";
-import { AppSidebar } from "./app-sidebar";
+import { AppHeader } from "./header/app-header";
+import { Sidebar } from "./sidebar";
+import { SidebarProvider } from "./sidebar/sidebar-provider";
 
 type AppLayoutProps = {
   auth: AuthSession;
@@ -15,16 +16,20 @@ export function AppLayout({
   children,
 }: AppLayoutProps) {
   return (
-    <div className="flex min-h-screen bg-muted/30">
-      <AppSidebar auth={auth} />
+    <SidebarProvider>
+      <div className="flex min-h-screen bg-muted/30">
+        <Sidebar auth={auth} />
 
-      <div className="flex flex-1 flex-col">
-        <AppHeader auth={auth} />
+        <div className="flex flex-1 flex-col">
+          <AppHeader auth={auth} />
 
-        <main className="flex-1 p-6">
-          {children}
-        </main>
+          <main className="flex-1 overflow-y-auto">
+              <div className="mx-auto w-full max-w-7xl p-8">
+                  {children}
+              </div>
+          </main>
+        </div>
       </div>
-    </div>
+    </SidebarProvider>
   );
 }
