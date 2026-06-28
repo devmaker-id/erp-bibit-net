@@ -1,17 +1,13 @@
 "use client";
 
 import { useTransition } from "react";
-import { useRouter } from "next/navigation";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 import { login } from "@/modules/auth/actions";
-import {
-  loginSchema,
-  type LoginInput,
-} from "@/modules/auth/validation";
+import { loginSchema } from "@/modules/auth/validation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -25,11 +21,9 @@ import {
 import { Input } from "@/components/ui/input";
 
 export function LoginForm() {
-  const router = useRouter();
-
   const [isPending, startTransition] = useTransition();
 
-  const form = useForm<LoginInput>({
+  const form = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: "",
@@ -37,7 +31,7 @@ export function LoginForm() {
     },
   });
 
-  function onSubmit(values: LoginInput) {
+  function onSubmit(values: typeof loginSchema._type) {
     startTransition(async () => {
       const result = await login(values);
 
@@ -49,15 +43,14 @@ export function LoginForm() {
 
       toast.success("Login successful.");
 
-      router.push("/");
-      router.refresh();
+      console.log(result.data);
     });
   }
 
   return (
     <Form {...form}>
       <form
-        className="space-y-6"
+        className="space-y-5"
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <FormField
@@ -69,7 +62,7 @@ export function LoginForm() {
 
               <FormControl>
                 <Input
-                  placeholder="name@example.com"
+                  placeholder="Enter your email"
                   autoComplete="email"
                   {...field}
                 />
@@ -90,7 +83,7 @@ export function LoginForm() {
               <FormControl>
                 <Input
                   type="password"
-                  placeholder="••••••••"
+                  placeholder="Enter your password"
                   autoComplete="current-password"
                   {...field}
                 />
@@ -106,7 +99,7 @@ export function LoginForm() {
           className="w-full"
           disabled={isPending}
         >
-          {isPending ? "Signing in..." : "Sign In"}
+          {isPending ? "Signing In..." : "Sign In"}
         </Button>
       </form>
     </Form>

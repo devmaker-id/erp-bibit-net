@@ -10,14 +10,12 @@ import { LoginForm } from "./login-form";
 
 export function LoginCard() {
   return (
-    <Card className="w-full max-w-md shadow-lg">
-      <CardHeader className="space-y-2 text-center">
-        <CardTitle className="text-2xl font-bold">
-          ERP Bibit Net
-        </CardTitle>
+    <Card className="w-full max-w-md">
+      <CardHeader className="text-center">
+        <CardTitle>ERP Bibit Net</CardTitle>
 
         <CardDescription>
-          Sign in to continue to your account.
+          Sign in to continue.
         </CardDescription>
       </CardHeader>
 

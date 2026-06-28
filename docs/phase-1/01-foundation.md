@@ -52,13 +52,13 @@ Root Layout harus tetap ringan dan fokus pada konfigurasi aplikasi.
 
 | Technology | Version |
 |------------|---------|
-| Next.js | 16 |
+| Next.js | 16.2.9 |
 | React | 19 |
 | TypeScript | 5 |
 | Prisma ORM | 7.8.0 |
 | PostgreSQL | 16 (Homebrew) |
 | TailwindCSS | 4.x |
-| shadcn/ui | Latest |
+| shadcn/ui | 4.x |
 
 ---
 

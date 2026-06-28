@@ -1,22 +1,17 @@
 "use server";
 
+import { z } from "zod";
 import { safeAction } from "@/core/actions";
-
 import { authService } from "../service";
 
-import { z } from "zod";
-
 const logoutSchema = z.object({
-  sessionId: z.string().min(1),
+  sessionId: z.string(),
 });
 
-type LogoutInput = z.infer<typeof logoutSchema>;
-
-export const logout = safeAction(
-  logoutSchema,
-  async ({ sessionId }: LogoutInput) => {
+export const logout = safeAction({
+  schema: logoutSchema,
+  handler: async ({ sessionId }) => {
     await authService.logout(sessionId);
-
     return null;
   },
-);
+});

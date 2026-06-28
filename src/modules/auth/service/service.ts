@@ -2,34 +2,22 @@ import { addDays } from "date-fns";
 
 import { AppError } from "@/core/errors";
 
-import { AUTH } from "@/lib/auth/constants";
-import { verifyPassword } from "@/lib/auth/password";
+import { AUTH } from "@/lib/auth";
+import { verifyPassword } from "@/lib/auth";
 import {
   generateSessionToken,
   hashToken,
-} from "@/lib/auth/token";
+} from "@/lib/auth";
 
 import { authRepository } from "../repository";
-
-interface LoginInput {
-  email: string;
-  password: string;
-
-  ipAddress?: string;
-  userAgent?: string;
-}
+import type { LoginInput } from "../validation";
 
 export class AuthService {
   /**
-   * Login user.
+   * Authenticate user.
    */
-  async login({
-    email,
-    password,
-    ipAddress,
-    userAgent,
-  }: LoginInput) {
-    const user = await authRepository.findUserByEmail(email);
+  async login(input: LoginInput) {
+    const user = await authRepository.findUserByEmail(input.email);
 
     if (!user) {
       throw new AppError("Invalid email or password.");
@@ -48,7 +36,7 @@ export class AuthService {
     }
 
     const passwordMatched = await verifyPassword(
-      password,
+      input.password,
       user.password,
     );
 
@@ -77,25 +65,17 @@ export class AuthService {
       AUTH.SESSION_EXPIRES_IN_DAYS,
     );
 
-    const session = await authRepository.createSession({
+    await authRepository.createSession({
       userId: user.id,
       membershipId: membership.id,
       sessionToken: hashedToken,
-
       expiresAt,
-
-      ipAddress,
-      userAgent,
     });
-
-    await authRepository.touchSession(session.id);
 
     return {
       sessionToken,
       expiresAt,
-
       user,
-
       membership,
     };
   }
@@ -108,16 +88,9 @@ export class AuthService {
   }
 
   /**
-   * Current user.
+   * Find session.
    */
-  async me(userId: string) {
-    return authRepository.findUserById(userId);
-  }
-
-  /**
-   * Current session.
-   */
-  async session(sessionToken: string) {
+  async findSession(sessionToken: string) {
     return authRepository.findSession(
       hashToken(sessionToken),
     );
