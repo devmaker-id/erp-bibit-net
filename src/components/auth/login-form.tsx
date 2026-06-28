@@ -45,7 +45,7 @@ export function LoginForm() {
 
       toast.success("Login successful.");
 
-      router.replace("/");
+      router.replace("/dashboard");
       router.refresh();
     });
   }

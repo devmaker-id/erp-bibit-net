@@ -1,9 +1,19 @@
+import type { ReactNode } from "react";
+
 import { requireAuth } from "@/modules/auth/guards";
 
-const auth = await requireAuth();
+import { AppLayout } from "@/components/layout";
 
-return (
+export default async function DashboardLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  const auth = await requireAuth();
+
+  return (
     <AppLayout auth={auth}>
-        {children}
+      {children}
     </AppLayout>
-);
+  );
+}
