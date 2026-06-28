@@ -1,15 +1,8 @@
 "use server";
 
-import { getSessionCookie } from "@/lib/auth";
-
-import { authService } from "../service";
+import { getCurrentSession } from "../utils";
 
 export async function currentAuth() {
-  const sessionToken = await getSessionCookie();
-
-  if (!sessionToken) {
-    return null;
-  }
-
-  return authService.findSession(sessionToken);
+  return getCurrentSession();
 }
+
