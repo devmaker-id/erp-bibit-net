@@ -3,11 +3,12 @@
 import { useTransition } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 import { login } from "@/modules/auth/actions";
-import { loginSchema } from "@/modules/auth/validation";
+import { loginSchema, type LoginInput } from "@/modules/auth/validation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -21,9 +22,10 @@ import {
 import { Input } from "@/components/ui/input";
 
 export function LoginForm() {
+  const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
-  const form = useForm({
+  const form = useForm<LoginInput>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: "",
@@ -31,7 +33,7 @@ export function LoginForm() {
     },
   });
 
-  function onSubmit(values: typeof loginSchema._type) {
+  function onSubmit(values: LoginInput) {
     startTransition(async () => {
       const result = await login(values);
 
@@ -43,7 +45,8 @@ export function LoginForm() {
 
       toast.success("Login successful.");
 
-      console.log(result.data);
+      router.replace("/");
+      router.refresh();
     });
   }
 

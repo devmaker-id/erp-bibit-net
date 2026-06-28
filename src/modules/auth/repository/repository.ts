@@ -1,9 +1,6 @@
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/database/prisma";
 
 export class AuthRepository {
-  /**
-   * Find user by email.
-   */
   async findUserByEmail(email: string) {
     return prisma.user.findUnique({
       where: {
@@ -12,9 +9,6 @@ export class AuthRepository {
     });
   }
 
-  /**
-   * Find user by id.
-   */
   async findUserById(id: string) {
     return prisma.user.findUnique({
       where: {
@@ -23,14 +17,28 @@ export class AuthRepository {
     });
   }
 
-  /**
-   * Find active memberships.
-   */
   async findMemberships(userId: string) {
     return prisma.membership.findMany({
       where: {
         userId,
         isActive: true,
+        resignedAt: null,
+        user: {
+          isActive: true,
+          deletedAt: null,
+        },
+        company: {
+          isActive: true,
+          deletedAt: null,
+        },
+        branch: {
+          isActive: true,
+          deletedAt: null,
+        },
+        role: {
+          isActive: true,
+          deletedAt: null,
+        },
       },
       include: {
         company: true,
@@ -59,9 +67,6 @@ export class AuthRepository {
     });
   }
 
-  /**
-   * Create session.
-   */
   async createSession(data: {
     userId: string;
     membershipId: string;
@@ -75,13 +80,15 @@ export class AuthRepository {
     });
   }
 
-  /**
-   * Find session by token.
-   */
   async findSession(sessionToken: string) {
-    return prisma.session.findUnique({
+    return prisma.session.findFirst({
       where: {
         sessionToken,
+        isActive: true,
+        revokedAt: null,
+        expiresAt: {
+          gt: new Date(),
+        },
       },
       include: {
         user: true,
@@ -107,9 +114,6 @@ export class AuthRepository {
     });
   }
 
-  /**
-   * Update session activity.
-   */
   async touchSession(id: string) {
     return prisma.session.update({
       where: {
@@ -121,9 +125,6 @@ export class AuthRepository {
     });
   }
 
-  /**
-   * Revoke session.
-   */
   async revokeSession(id: string) {
     return prisma.session.update({
       where: {
@@ -136,9 +137,19 @@ export class AuthRepository {
     });
   }
 
-  /**
-   * Delete expired sessions.
-   */
+  async revokeSessionByToken(sessionToken: string) {
+    return prisma.session.updateMany({
+      where: {
+        sessionToken,
+        isActive: true,
+      },
+      data: {
+        revokedAt: new Date(),
+        isActive: false,
+      },
+    });
+  }
+
   async deleteExpiredSessions() {
     return prisma.session.deleteMany({
       where: {

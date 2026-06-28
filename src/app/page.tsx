@@ -1,4 +1,8 @@
-export default function HomePage() {
+import { currentAuth } from "@/modules/auth/actions";
+
+export default async function HomePage() {
+  const auth = await currentAuth();
+
   return (
     <main className="flex min-h-screen items-center justify-center">
       <div className="space-y-2 text-center">
@@ -7,7 +11,9 @@ export default function HomePage() {
         </h1>
 
         <p className="text-muted-foreground">
-          Foundation v1.0
+          {auth
+            ? `Signed in as ${auth.user.firstName}`
+            : "Foundation v1.0"}
         </p>
       </div>
     </main>
