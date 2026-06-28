@@ -1,40 +1,32 @@
-import type { AuthUser, CurrentMembership } from "./types";
+"use server";
 
-export const auth = {
-  /**
-   * Authenticate user.
-   */
-  async login() {
-    throw new Error("Not implemented.");
-  },
+import { cookies } from "next/headers";
 
-  /**
-   * Logout current session.
-   */
-  async logout() {
-    throw new Error("Not implemented.");
-  },
+import { AUTH } from "./constants";
 
-  /**
-   * Get current authenticated user.
-   */
-  async user(): Promise<AuthUser | null> {
-    throw new Error("Not implemented.");
-  },
+export async function setSessionCookie(
+  sessionToken: string,
+  expiresAt: Date,
+) {
+  const cookieStore = await cookies();
 
-  /**
-   * Get current active membership.
-   */
-  async membership(): Promise<CurrentMembership | null> {
-    throw new Error("Not implemented.");
-  },
+  cookieStore.set(AUTH.SESSION_COOKIE, sessionToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
+    expires: expiresAt,
+  });
+}
 
-  /**
-   * Check permission.
-   */
-  async can(
-    permission: string,
-  ): Promise<boolean> {
-    throw new Error("Not implemented.");
-  },
-};
+export async function getSessionCookie() {
+  const cookieStore = await cookies();
+
+  return cookieStore.get(AUTH.SESSION_COOKIE)?.value ?? null;
+}
+
+export async function clearSessionCookie() {
+  const cookieStore = await cookies();
+
+  cookieStore.delete(AUTH.SESSION_COOKIE);
+}

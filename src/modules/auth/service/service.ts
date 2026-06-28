@@ -1,23 +1,28 @@
 import { addDays } from "date-fns";
 
 import { AppError } from "@/core/errors";
-import { AUTH } from "@/lib/auth";
+
+import { AUTH } from "@/lib/auth/constants";
+import { verifyPassword } from "@/lib/auth/password";
 import {
   generateSessionToken,
-  hashPassword,
   hashToken,
-  verifyPassword,
-} from "@/lib/auth";
+} from "@/lib/auth/token";
+
 import { authRepository } from "../repository";
 
 interface LoginInput {
   email: string;
   password: string;
+
   ipAddress?: string;
   userAgent?: string;
 }
 
 export class AuthService {
+  /**
+   * Login user.
+   */
   async login({
     email,
     password,
@@ -34,65 +39,88 @@ export class AuthService {
       throw new AppError("User account is inactive.");
     }
 
+    if (user.deletedAt) {
+      throw new AppError("User account has been deleted.");
+    }
+
     if (user.lockedAt) {
       throw new AppError("User account is locked.");
     }
 
-    const valid = await verifyPassword(
+    const passwordMatched = await verifyPassword(
       password,
       user.password,
     );
 
-    if (!valid) {
+    if (!passwordMatched) {
       throw new AppError("Invalid email or password.");
     }
 
-    const memberships =
-      await authRepository.findActiveMembershipsByUserId(
-        user.id,
-      );
+    const memberships = await authRepository.findMemberships(
+      user.id,
+    );
 
-    if (!memberships.length) {
-      throw new AppError(
-        "No active membership found.",
-      );
+    if (memberships.length === 0) {
+      throw new AppError("User has no active membership.");
     }
 
     const membership =
-      memberships.find((m) => m.isDefault) ??
+      memberships.find((item) => item.isDefault) ??
       memberships[0];
 
-    const token = generateSessionToken();
+    const sessionToken = generateSessionToken();
 
-    const session =
-      await authRepository.createSession({
-        userId: user.id,
-        membershipId: membership.id,
-        sessionToken: hashToken(token),
+    const hashedToken = hashToken(sessionToken);
 
-        expiresAt: addDays(
-          new Date(),
-          AUTH.SESSION.EXPIRES_IN_DAYS,
-        ),
+    const expiresAt = addDays(
+      new Date(),
+      AUTH.SESSION_EXPIRES_IN_DAYS,
+    );
 
-        ipAddress,
-        userAgent,
-      });
+    const session = await authRepository.createSession({
+      userId: user.id,
+      membershipId: membership.id,
+      sessionToken: hashedToken,
+
+      expiresAt,
+
+      ipAddress,
+      userAgent,
+    });
+
+    await authRepository.touchSession(session.id);
 
     return {
-      token,
-      session,
+      sessionToken,
+      expiresAt,
+
       user,
+
       membership,
     };
   }
 
+  /**
+   * Logout.
+   */
   async logout(sessionId: string) {
-    return authRepository.revokeSession(sessionId);
+    await authRepository.revokeSession(sessionId);
   }
 
+  /**
+   * Current user.
+   */
   async me(userId: string) {
     return authRepository.findUserById(userId);
+  }
+
+  /**
+   * Current session.
+   */
+  async session(sessionToken: string) {
+    return authRepository.findSession(
+      hashToken(sessionToken),
+    );
   }
 }
 
