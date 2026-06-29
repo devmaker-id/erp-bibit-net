@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { env } from "@/lib/env";
 
 import { getCurrentSession } from "@/modules/auth/utils/current-session";
 
@@ -9,15 +10,18 @@ export default async function RootNotFound() {
     redirect("/login");
   }
 
-  return (
-    <main className="flex min-h-screen items-center justify-center">
-      <div className="space-y-3 text-center">
-        <h1 className="text-5xl font-bold">404</h1>
+  if(env.APP_ENV !== "production") {
+    return (
+      <main className="flex min-h-screen items-center justify-center">
+        <div className="space-y-3 text-center">
+          <h1 className="text-5xl font-bold">404</h1>
 
-        <p className="text-muted-foreground">
-          Page not found.
-        </p>
-      </div>
-    </main>
-  );
+          <p className="text-muted-foreground">
+            {env.APP_ENV === "development" && "This is a development environment."}
+          </p>
+        </div>
+      </main>
+    );
+  }
+  redirect("/dashboard");
 }

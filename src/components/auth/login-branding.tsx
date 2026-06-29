@@ -51,13 +51,12 @@ export function LoginBranding() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,.18),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,.10),transparent_40%)]" />
 
       {/* Content */}
-      <div className="relative z-10 flex h-full w-full flex-col justify-between p-14 text-white">
+      <div className="relative z-10 flex h-full w-full flex-col justify-between p-5 text-white">
         {/* Header */}
         <div className="space-y-8">
           <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur">
             <Building2 className="size-8" />
           </div>
-
           <div className="space-y-4">
             <h1 className="text-5xl font-bold tracking-tight">
               ERP Bibit Net
