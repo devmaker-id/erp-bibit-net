@@ -248,6 +248,10 @@ model Membership {
   isDefault Boolean @default(false)
   isActive Boolean @default(true)
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
   user User @relation(fields: [userId], references: [id])
   company Company @relation(fields: [companyId], references: [id])
   branch Branch @relation(fields: [branchId], references: [id])

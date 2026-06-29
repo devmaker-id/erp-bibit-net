@@ -36,6 +36,9 @@ export type MembershipMinAggregateOutputType = {
   resignedAt: Date | null
   isDefault: boolean | null
   isActive: boolean | null
+  createdAt: Date | null
+  updatedAt: Date | null
+  deletedAt: Date | null
 }
 
 export type MembershipMaxAggregateOutputType = {
@@ -50,6 +53,9 @@ export type MembershipMaxAggregateOutputType = {
   resignedAt: Date | null
   isDefault: boolean | null
   isActive: boolean | null
+  createdAt: Date | null
+  updatedAt: Date | null
+  deletedAt: Date | null
 }
 
 export type MembershipCountAggregateOutputType = {
@@ -64,6 +70,9 @@ export type MembershipCountAggregateOutputType = {
   resignedAt: number
   isDefault: number
   isActive: number
+  createdAt: number
+  updatedAt: number
+  deletedAt: number
   _all: number
 }
 
@@ -80,6 +89,9 @@ export type MembershipMinAggregateInputType = {
   resignedAt?: true
   isDefault?: true
   isActive?: true
+  createdAt?: true
+  updatedAt?: true
+  deletedAt?: true
 }
 
 export type MembershipMaxAggregateInputType = {
@@ -94,6 +106,9 @@ export type MembershipMaxAggregateInputType = {
   resignedAt?: true
   isDefault?: true
   isActive?: true
+  createdAt?: true
+  updatedAt?: true
+  deletedAt?: true
 }
 
 export type MembershipCountAggregateInputType = {
@@ -108,6 +123,9 @@ export type MembershipCountAggregateInputType = {
   resignedAt?: true
   isDefault?: true
   isActive?: true
+  createdAt?: true
+  updatedAt?: true
+  deletedAt?: true
   _all?: true
 }
 
@@ -195,6 +213,9 @@ export type MembershipGroupByOutputType = {
   resignedAt: Date | null
   isDefault: boolean
   isActive: boolean
+  createdAt: Date
+  updatedAt: Date
+  deletedAt: Date | null
   _count: MembershipCountAggregateOutputType | null
   _min: MembershipMinAggregateOutputType | null
   _max: MembershipMaxAggregateOutputType | null
@@ -230,6 +251,9 @@ export type MembershipWhereInput = {
   resignedAt?: Prisma.DateTimeNullableFilter<"Membership"> | Date | string | null
   isDefault?: Prisma.BoolFilter<"Membership"> | boolean
   isActive?: Prisma.BoolFilter<"Membership"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"Membership"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Membership"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableFilter<"Membership"> | Date | string | null
   sessions?: Prisma.SessionListRelationFilter
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.CompanyWhereInput>
@@ -249,6 +273,9 @@ export type MembershipOrderByWithRelationInput = {
   resignedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   isDefault?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   sessions?: Prisma.SessionOrderByRelationAggregateInput
   user?: Prisma.UserOrderByWithRelationInput
   company?: Prisma.CompanyOrderByWithRelationInput
@@ -272,6 +299,9 @@ export type MembershipWhereUniqueInput = Prisma.AtLeast<{
   resignedAt?: Prisma.DateTimeNullableFilter<"Membership"> | Date | string | null
   isDefault?: Prisma.BoolFilter<"Membership"> | boolean
   isActive?: Prisma.BoolFilter<"Membership"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"Membership"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Membership"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableFilter<"Membership"> | Date | string | null
   sessions?: Prisma.SessionListRelationFilter
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.CompanyWhereInput>
@@ -291,6 +321,9 @@ export type MembershipOrderByWithAggregationInput = {
   resignedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   isDefault?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.MembershipCountOrderByAggregateInput
   _max?: Prisma.MembershipMaxOrderByAggregateInput
   _min?: Prisma.MembershipMinOrderByAggregateInput
@@ -311,6 +344,9 @@ export type MembershipScalarWhereWithAggregatesInput = {
   resignedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Membership"> | Date | string | null
   isDefault?: Prisma.BoolWithAggregatesFilter<"Membership"> | boolean
   isActive?: Prisma.BoolWithAggregatesFilter<"Membership"> | boolean
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Membership"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Membership"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Membership"> | Date | string | null
 }
 
 export type MembershipCreateInput = {
@@ -321,6 +357,9 @@ export type MembershipCreateInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
   sessions?: Prisma.SessionCreateNestedManyWithoutMembershipInput
   user: Prisma.UserCreateNestedOneWithoutMembershipsInput
   company: Prisma.CompanyCreateNestedOneWithoutMembershipsInput
@@ -340,6 +379,9 @@ export type MembershipUncheckedCreateInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutMembershipInput
 }
 
@@ -351,6 +393,9 @@ export type MembershipUpdateInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   sessions?: Prisma.SessionUpdateManyWithoutMembershipNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutMembershipsNestedInput
   company?: Prisma.CompanyUpdateOneRequiredWithoutMembershipsNestedInput
@@ -370,6 +415,9 @@ export type MembershipUncheckedUpdateInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutMembershipNestedInput
 }
 
@@ -385,6 +433,9 @@ export type MembershipCreateManyInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
 }
 
 export type MembershipUpdateManyMutationInput = {
@@ -395,6 +446,9 @@ export type MembershipUpdateManyMutationInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type MembershipUncheckedUpdateManyInput = {
@@ -409,6 +463,9 @@ export type MembershipUncheckedUpdateManyInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type MembershipListRelationFilter = {
@@ -440,6 +497,9 @@ export type MembershipCountOrderByAggregateInput = {
   resignedAt?: Prisma.SortOrder
   isDefault?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
 }
 
 export type MembershipMaxOrderByAggregateInput = {
@@ -454,6 +514,9 @@ export type MembershipMaxOrderByAggregateInput = {
   resignedAt?: Prisma.SortOrder
   isDefault?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
 }
 
 export type MembershipMinOrderByAggregateInput = {
@@ -468,6 +531,9 @@ export type MembershipMinOrderByAggregateInput = {
   resignedAt?: Prisma.SortOrder
   isDefault?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
 }
 
 export type MembershipScalarRelationFilter = {
@@ -665,6 +731,9 @@ export type MembershipCreateWithoutCompanyInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
   sessions?: Prisma.SessionCreateNestedManyWithoutMembershipInput
   user: Prisma.UserCreateNestedOneWithoutMembershipsInput
   branch: Prisma.BranchCreateNestedOneWithoutMembershipsInput
@@ -682,6 +751,9 @@ export type MembershipUncheckedCreateWithoutCompanyInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutMembershipInput
 }
 
@@ -726,6 +798,9 @@ export type MembershipScalarWhereInput = {
   resignedAt?: Prisma.DateTimeNullableFilter<"Membership"> | Date | string | null
   isDefault?: Prisma.BoolFilter<"Membership"> | boolean
   isActive?: Prisma.BoolFilter<"Membership"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"Membership"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Membership"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableFilter<"Membership"> | Date | string | null
 }
 
 export type MembershipCreateWithoutBranchInput = {
@@ -736,6 +811,9 @@ export type MembershipCreateWithoutBranchInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
   sessions?: Prisma.SessionCreateNestedManyWithoutMembershipInput
   user: Prisma.UserCreateNestedOneWithoutMembershipsInput
   company: Prisma.CompanyCreateNestedOneWithoutMembershipsInput
@@ -753,6 +831,9 @@ export type MembershipUncheckedCreateWithoutBranchInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutMembershipInput
 }
 
@@ -790,6 +871,9 @@ export type MembershipCreateWithoutRoleInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
   sessions?: Prisma.SessionCreateNestedManyWithoutMembershipInput
   user: Prisma.UserCreateNestedOneWithoutMembershipsInput
   company: Prisma.CompanyCreateNestedOneWithoutMembershipsInput
@@ -807,6 +891,9 @@ export type MembershipUncheckedCreateWithoutRoleInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutMembershipInput
 }
 
@@ -844,6 +931,9 @@ export type MembershipCreateWithoutUserInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
   sessions?: Prisma.SessionCreateNestedManyWithoutMembershipInput
   company: Prisma.CompanyCreateNestedOneWithoutMembershipsInput
   branch: Prisma.BranchCreateNestedOneWithoutMembershipsInput
@@ -861,6 +951,9 @@ export type MembershipUncheckedCreateWithoutUserInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutMembershipInput
 }
 
@@ -898,6 +991,9 @@ export type MembershipCreateWithoutSessionsInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
   user: Prisma.UserCreateNestedOneWithoutMembershipsInput
   company: Prisma.CompanyCreateNestedOneWithoutMembershipsInput
   branch: Prisma.BranchCreateNestedOneWithoutMembershipsInput
@@ -916,6 +1012,9 @@ export type MembershipUncheckedCreateWithoutSessionsInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
 }
 
 export type MembershipCreateOrConnectWithoutSessionsInput = {
@@ -942,6 +1041,9 @@ export type MembershipUpdateWithoutSessionsInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutMembershipsNestedInput
   company?: Prisma.CompanyUpdateOneRequiredWithoutMembershipsNestedInput
   branch?: Prisma.BranchUpdateOneRequiredWithoutMembershipsNestedInput
@@ -960,6 +1062,9 @@ export type MembershipUncheckedUpdateWithoutSessionsInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type MembershipCreateManyCompanyInput = {
@@ -973,6 +1078,9 @@ export type MembershipCreateManyCompanyInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
 }
 
 export type MembershipUpdateWithoutCompanyInput = {
@@ -983,6 +1091,9 @@ export type MembershipUpdateWithoutCompanyInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   sessions?: Prisma.SessionUpdateManyWithoutMembershipNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutMembershipsNestedInput
   branch?: Prisma.BranchUpdateOneRequiredWithoutMembershipsNestedInput
@@ -1000,6 +1111,9 @@ export type MembershipUncheckedUpdateWithoutCompanyInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutMembershipNestedInput
 }
 
@@ -1014,6 +1128,9 @@ export type MembershipUncheckedUpdateManyWithoutCompanyInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type MembershipCreateManyBranchInput = {
@@ -1027,6 +1144,9 @@ export type MembershipCreateManyBranchInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
 }
 
 export type MembershipUpdateWithoutBranchInput = {
@@ -1037,6 +1157,9 @@ export type MembershipUpdateWithoutBranchInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   sessions?: Prisma.SessionUpdateManyWithoutMembershipNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutMembershipsNestedInput
   company?: Prisma.CompanyUpdateOneRequiredWithoutMembershipsNestedInput
@@ -1054,6 +1177,9 @@ export type MembershipUncheckedUpdateWithoutBranchInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutMembershipNestedInput
 }
 
@@ -1068,6 +1194,9 @@ export type MembershipUncheckedUpdateManyWithoutBranchInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type MembershipCreateManyRoleInput = {
@@ -1081,6 +1210,9 @@ export type MembershipCreateManyRoleInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
 }
 
 export type MembershipUpdateWithoutRoleInput = {
@@ -1091,6 +1223,9 @@ export type MembershipUpdateWithoutRoleInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   sessions?: Prisma.SessionUpdateManyWithoutMembershipNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutMembershipsNestedInput
   company?: Prisma.CompanyUpdateOneRequiredWithoutMembershipsNestedInput
@@ -1108,6 +1243,9 @@ export type MembershipUncheckedUpdateWithoutRoleInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutMembershipNestedInput
 }
 
@@ -1122,6 +1260,9 @@ export type MembershipUncheckedUpdateManyWithoutRoleInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type MembershipCreateManyUserInput = {
@@ -1135,6 +1276,9 @@ export type MembershipCreateManyUserInput = {
   resignedAt?: Date | string | null
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
 }
 
 export type MembershipUpdateWithoutUserInput = {
@@ -1145,6 +1289,9 @@ export type MembershipUpdateWithoutUserInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   sessions?: Prisma.SessionUpdateManyWithoutMembershipNestedInput
   company?: Prisma.CompanyUpdateOneRequiredWithoutMembershipsNestedInput
   branch?: Prisma.BranchUpdateOneRequiredWithoutMembershipsNestedInput
@@ -1162,6 +1309,9 @@ export type MembershipUncheckedUpdateWithoutUserInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutMembershipNestedInput
 }
 
@@ -1176,6 +1326,9 @@ export type MembershipUncheckedUpdateManyWithoutUserInput = {
   resignedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   isDefault?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -1221,6 +1374,9 @@ export type MembershipSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   resignedAt?: boolean
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
+  deletedAt?: boolean
   sessions?: boolean | Prisma.Membership$sessionsArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
@@ -1241,6 +1397,9 @@ export type MembershipSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   resignedAt?: boolean
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
+  deletedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
   branch?: boolean | Prisma.BranchDefaultArgs<ExtArgs>
@@ -1259,6 +1418,9 @@ export type MembershipSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   resignedAt?: boolean
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
+  deletedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
   branch?: boolean | Prisma.BranchDefaultArgs<ExtArgs>
@@ -1277,9 +1439,12 @@ export type MembershipSelectScalar = {
   resignedAt?: boolean
   isDefault?: boolean
   isActive?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
+  deletedAt?: boolean
 }
 
-export type MembershipOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "companyId" | "branchId" | "roleId" | "employeeNumber" | "title" | "joinedAt" | "resignedAt" | "isDefault" | "isActive", ExtArgs["result"]["membership"]>
+export type MembershipOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "companyId" | "branchId" | "roleId" | "employeeNumber" | "title" | "joinedAt" | "resignedAt" | "isDefault" | "isActive" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["membership"]>
 export type MembershipInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sessions?: boolean | Prisma.Membership$sessionsArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1322,6 +1487,9 @@ export type $MembershipPayload<ExtArgs extends runtime.Types.Extensions.Internal
     resignedAt: Date | null
     isDefault: boolean
     isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    deletedAt: Date | null
   }, ExtArgs["result"]["membership"]>
   composites: {}
 }
@@ -1761,6 +1929,9 @@ export interface MembershipFieldRefs {
   readonly resignedAt: Prisma.FieldRef<"Membership", 'DateTime'>
   readonly isDefault: Prisma.FieldRef<"Membership", 'Boolean'>
   readonly isActive: Prisma.FieldRef<"Membership", 'Boolean'>
+  readonly createdAt: Prisma.FieldRef<"Membership", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Membership", 'DateTime'>
+  readonly deletedAt: Prisma.FieldRef<"Membership", 'DateTime'>
 }
     
 
