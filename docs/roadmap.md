@@ -71,6 +71,7 @@ Membangun pondasi backend yang digunakan oleh seluruh domain.
 * [ ] Service
 * [ ] Validator
 * [ ] Action
+* [ ] UI
 * [ ] Testing
 
 ---
@@ -85,6 +86,7 @@ Membangun pondasi backend yang digunakan oleh seluruh domain.
 * [ ] Service
 * [ ] Validator
 * [ ] Action
+* [ ] UI
 * [ ] Testing
 
 ---
@@ -99,6 +101,7 @@ Membangun pondasi backend yang digunakan oleh seluruh domain.
 * [ ] Service
 * [ ] Validator
 * [ ] Action
+* [ ] UI
 * [ ] Testing
 
 ---
@@ -113,6 +116,7 @@ Membangun pondasi backend yang digunakan oleh seluruh domain.
 * [ ] Service
 * [ ] Validator
 * [ ] Action
+* [ ] UI
 * [ ] Testing
 
 ---
@@ -127,6 +131,7 @@ Membangun pondasi backend yang digunakan oleh seluruh domain.
 * [ ] Service
 * [ ] Validator
 * [ ] Action
+* [ ] UI
 * [ ] Testing
 
 ---
@@ -195,11 +200,11 @@ Membangun pondasi backend yang digunakan oleh seluruh domain.
 * [x] Prisma Model
 * [x] Migration
 * [x] Seeder
-* [ ] Repository
-* [ ] Service
-* [ ] Validator
-* [ ] Action
-* [ ] UI
+* [x] Repository
+* [x] Service
+* [x] Validator
+* [x] Action
+* [x] UI
 * [ ] Testing
 
 ---
@@ -210,11 +215,11 @@ Membangun pondasi backend yang digunakan oleh seluruh domain.
 * [x] Prisma Model
 * [x] Migration
 * [x] Seeder
-* [ ] Repository
-* [ ] Service
-* [ ] Validator
-* [ ] Action
-* [ ] UI
+* [x] Repository
+* [x] Service
+* [x] Validator
+* [x] Action
+* [x] UI
 * [ ] Testing
 
 ---
@@ -225,11 +230,11 @@ Membangun pondasi backend yang digunakan oleh seluruh domain.
 * [x] Prisma Model
 * [x] Migration
 * [x] Seeder
-* [ ] Repository
-* [ ] Service
-* [ ] Validator
-* [ ] Action
-* [ ] UI
+* [x] Repository
+* [x] Service
+* [x] Validator
+* [x] Action
+* [x] UI
 * [ ] Testing
 
 ---
@@ -363,23 +368,23 @@ Membangun pondasi backend yang digunakan oleh seluruh domain.
 * Sidebar
 * Header
 * Session Authentication
+* Company Module V1
+* Branch Module V1
+* Warehouse Module V1
 
 ---
 
 ## 🎯 Current Sprint
 
-* Authorization
-* Company Repository
-* Company Service
-* Company Validation
-* Company Action
-* Company UI
+* Permission
+* Role
+* Role Permission
+* Membership
 
 ---
 
 ## 🚀 Next Sprint
 
-* Branch
-* Warehouse
-* Membership
 * Dashboard
+* Master Data
+* Inventory
