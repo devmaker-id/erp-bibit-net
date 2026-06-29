@@ -1,7 +1,7 @@
 "use server";
 
 import { safeAction } from "@/core";
-import { companyService } from "../services/company.service";
+import { companyService } from "../services";
 import { deleteCompanyValidator } from "../validators";
 
 export const deleteCompanyAction = safeAction({

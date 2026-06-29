@@ -1,8 +1,8 @@
 "use server";
 
 import { safeAction } from "@/core";
-import { companyService } from "../services/company.service";
-import { updateCompanyValidator } from "../validators/update-company.validator";
+import { companyService } from "../services";
+import { updateCompanyValidator } from "../validators";
 
 export const updateCompanyAction = safeAction({
   schema: updateCompanyValidator,

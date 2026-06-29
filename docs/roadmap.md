@@ -1,9 +1,10 @@
 # ERP Bibit Net Roadmap
 
 > 🌱 **ERP Bibit Net**
+>
 > Enterprise Resource Planning berbasis **Next.js 16**, **React 19**, **Prisma ORM 7**, dan **PostgreSQL 16**.
 >
-> Architecture:
+> **Architecture**
 >
 > * Multi Company
 > * Multi Branch
@@ -58,60 +59,9 @@ Membangun pondasi backend yang digunakan oleh seluruh domain.
 
 ---
 
-# Phase 4 — Core Organization
+# Phase 4 — Identity & Access Management (IAM)
 
-Membangun struktur organisasi perusahaan.
-
-## Phase 4.1 — Companies
-
-* [x] Documentation
-* [x] Prisma Model
-* [x] Migration
-* [x] Seeder
-* [ ] Repository
-* [ ] Service
-* [ ] Validator
-* [ ] Action
-* [ ] UI
-* [ ] Testing
-
----
-
-## Phase 4.2 — Branches
-
-* [x] Documentation
-* [x] Prisma Model
-* [x] Migration
-* [x] Seeder
-* [ ] Repository
-* [ ] Service
-* [ ] Validator
-* [ ] Action
-* [ ] UI
-* [ ] Testing
-
----
-
-## Phase 4.3 — Warehouses
-
-* [x] Documentation
-* [x] Prisma Model
-* [x] Migration
-* [x] Seeder
-* [ ] Repository
-* [ ] Service
-* [ ] Validator
-* [ ] Action
-* [ ] UI
-* [ ] Testing
-
----
-
-# Phase 5 — Identity & Access Management (IAM)
-
-Membangun Authentication dan Authorization.
-
-## Phase 5.1 — Permission
+## Phase 4.1 — Permission
 
 * [x] Documentation
 * [x] Prisma Model
@@ -125,7 +75,7 @@ Membangun Authentication dan Authorization.
 
 ---
 
-## Phase 5.2 — Role
+## Phase 4.2 — Role
 
 * [x] Documentation
 * [x] Prisma Model
@@ -139,7 +89,7 @@ Membangun Authentication dan Authorization.
 
 ---
 
-## Phase 5.3 — Role Permission
+## Phase 4.3 — Role Permission
 
 * [x] Documentation
 * [x] Prisma Model
@@ -153,7 +103,7 @@ Membangun Authentication dan Authorization.
 
 ---
 
-## Phase 5.4 — User
+## Phase 4.4 — User
 
 * [x] Documentation
 * [x] Prisma Model
@@ -167,7 +117,7 @@ Membangun Authentication dan Authorization.
 
 ---
 
-## Phase 5.5 — Membership
+## Phase 4.5 — Session
 
 * [x] Documentation
 * [x] Prisma Model
@@ -181,48 +131,150 @@ Membangun Authentication dan Authorization.
 
 ---
 
-## Phase 5.6 — Session
+## Phase 4.6 — Authentication
 
-* [x] Documentation
-* [x] Prisma Model
-* [x] Migration
-* [x] Seeder
-* [ ] Repository
-* [ ] Service
-* [ ] Validator
-* [ ] Action
-* [ ] Testing
+### Backend
+
+* [x] Login
+* [x] Logout
+* [x] Current User
+* [x] Current Session
+* [x] Refresh Session
+* [x] Session Cookie
+
+### UI
+
+* [x] Login Page
+* [x] Login Layout
+* [x] Login Branding
+* [x] Login Form
+* [x] Login Card
+* [x] Login Mobile Header
+* [x] Login Footer
+
+### Next
+
+* [ ] Remember Me
+* [ ] Forgot Password
+* [ ] Reset Password
+* [ ] Verify Email
+* [ ] Two Factor Authentication
 
 ---
 
-## Phase 5.7 — Authentication
+## Phase 4.7 — Authorization
 
-* [ ] Login
-* [ ] Logout
-* [ ] Refresh Session
-* [ ] Current User
-
----
-
-## Phase 5.8 — Authorization
-
-* [ ] RBAC
-* [ ] Permission Guard
+* [x] RBAC Foundation
+* [x] Permission Guard
+* [x] Role Guard
 * [ ] Middleware
 * [ ] Workspace Switcher
+* [ ] Company Switcher
+* [ ] Branch Switcher
+* [ ] Warehouse Switcher
 
 ---
 
-# Phase 6 — Master Data
+## Phase 4.8 — Audit & Security
 
+* [ ] Session List
+* [ ] Logout All Devices
+* [ ] Revoke Session
+* [ ] Login History
+* [ ] Failed Login
+* [ ] Account Lock
+* [ ] Audit Log
+
+---
+
+# Phase 5 — Organization
+
+## Phase 5.1 — Companies
+
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [x] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] UI
+* [ ] Testing
+
+---
+
+## Phase 5.2 — Branches
+
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [x] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] UI
+* [ ] Testing
+
+---
+
+## Phase 5.3 — Warehouses
+
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [x] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] UI
+* [ ] Testing
+
+---
+
+## Phase 5.4 — Membership
+
+* [x] Documentation
+* [x] Prisma Model
+* [x] Migration
+* [x] Seeder
+* [ ] Repository
+* [ ] Service
+* [ ] Validator
+* [ ] Action
+* [ ] UI
+* [ ] Testing
+
+---
+
+# Phase 6 — Dashboard
+
+* [ ] Dashboard Home
+* [ ] KPI Cards
+* [ ] Company Summary
+* [ ] Branch Summary
+* [ ] Warehouse Summary
+* [ ] Inventory Summary
+* [ ] Sales Summary
+* [ ] Recent Activities
+* [ ] Quick Actions
+
+---
+
+# Phase 7 — Master Data
+
+* [ ] Units
 * [ ] Categories
+* [ ] Brands
 * [ ] Products
 * [ ] Suppliers
 * [ ] Customers
 
 ---
 
-# Phase 7 — Inventory
+# Phase 8 — Inventory
 
 * [ ] Stock
 * [ ] Stock Movement
@@ -232,7 +284,7 @@ Membangun Authentication dan Authorization.
 
 ---
 
-# Phase 8 — Purchasing
+# Phase 9 — Purchasing
 
 * [ ] Purchase Requests
 * [ ] Purchase Orders
@@ -242,33 +294,38 @@ Membangun Authentication dan Authorization.
 
 ---
 
-# Phase 9 — Sales
+# Phase 10 — Sales
 
 * [ ] Quotations
 * [ ] Sales Orders
 * [ ] Delivery Orders
-* [ ] Invoices
-* [ ] Payments
+* [ ] Sales Invoices
+* [ ] Customer Payments
 * [ ] Sales Returns
 
 ---
 
-# Phase 10 — Reporting
+# Phase 11 — Reporting
 
 * [ ] Dashboard Analytics
-* [ ] Sales Report
-* [ ] Purchase Report
 * [ ] Inventory Report
+* [ ] Purchase Report
+* [ ] Sales Report
 * [ ] Financial Report
 * [ ] Export Excel
 * [ ] Export PDF
+* [ ] Scheduled Reports
 
 ---
 
-# Phase 11 — System Administration
+# Phase 12 — System Administration
 
+* [ ] User Management
+* [ ] Role Management
+* [ ] Permission Management
 * [ ] Company Settings
 * [ ] Branch Settings
+* [ ] Warehouse Settings
 * [ ] Numbering System
 * [ ] Activity Log
 * [ ] Audit Log
@@ -277,99 +334,52 @@ Membangun Authentication dan Authorization.
 
 ---
 
-# Phase 12 — Platform
+# Phase 13 — Platform
 
-* [ ] Multi Currency
 * [ ] Notification Center
+* [ ] Email Service
+* [ ] File Storage
 * [ ] Background Jobs
 * [ ] Scheduler
 * [ ] REST API
 * [ ] Mobile API
 * [ ] Public API
 * [ ] Webhook
-* [ ] Import & Export Engine
+* [ ] Import Engine
+* [ ] Export Engine
 
 ---
 
-# Current Progress
+# Current Milestone
 
-```text
-✅ Phase 1 — Foundation
+## ✅ Completed
 
-✅ Phase 2 — Architecture Foundation
-
-✅ Phase 3 — Backend Foundation
-
-🚀 Current Phase
-
-Phase 5.1 — Permission
-```
-
----
-
-# Development Workflow
-
-Setiap domain wajib mengikuti urutan berikut:
-
-```text
-Documentation
-        │
-        ▼
-Prisma Model
-        │
-        ▼
-Migration
-        │
-        ▼
-Seeder
-        │
-        ▼
-Repository
-        │
-        ▼
-Service
-        │
-        ▼
-Validator
-        │
-        ▼
-Action
-        │
-        ▼
-UI
-        │
-        ▼
-Testing
-```
-
-Tidak diperbolehkan melewati tahapan di atas.
+* Foundation
+* Architecture Foundation
+* Backend Foundation
+* Authentication Foundation
+* Login UI
+* App Layout
+* Sidebar
+* Header
+* Session Authentication
 
 ---
 
-# Development Principle
+## 🎯 Current Sprint
 
-ERP Bibit Net dibangun berdasarkan prinsip:
+* Authorization
+* Company Repository
+* Company Service
+* Company Validation
+* Company Action
+* Company UI
 
-```text
-Foundation
-        │
-        ▼
-Architecture
-        │
-        ▼
-Convention
-        │
-        ▼
-Domain
-        │
-        ▼
-Module
-        │
-        ▼
-Feature
-        │
-        ▼
-User Interface
-```
+---
 
-Business Domain selalu menjadi dasar sebelum implementasi database, backend, maupun user interface.
+## 🚀 Next Sprint
+
+* Branch
+* Warehouse
+* Membership
+* Dashboard

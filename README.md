@@ -5,6 +5,7 @@ Enterprise Resource Planning (ERP) berbasis **Next.js 16**, **React 19**, **Pris
 ERP Bibit Net dirancang sebagai ERP modern yang berorientasi Domain (Domain-Driven), Modular, dan Multi Company untuk kebutuhan jangka panjang.
 
 ---
+[=> ROADMAP_PROJEK_UPDATE <=](./docs/roadmap.md)
 
 # Vision
 

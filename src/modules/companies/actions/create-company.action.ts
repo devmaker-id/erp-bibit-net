@@ -2,7 +2,7 @@
 
 import { safeAction } from "@/core";
 
-import { companyService } from "../services/company.service";
+import { companyService } from "../services";
 
 import { createCompanyValidator } from "../validators";
 
