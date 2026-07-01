@@ -62,6 +62,7 @@ export const ModelName = {
   Session: 'Session',
   Customer: 'Customer',
   Product: 'Product',
+  Stock: 'Stock',
   PosSale: 'PosSale',
   PosSaleItem: 'PosSaleItem',
   PosPayment: 'PosPayment'
@@ -286,6 +287,21 @@ export const ProductScalarFieldEnum = {
 } as const
 
 export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
+
+
+export const StockScalarFieldEnum = {
+  id: 'id',
+  productId: 'productId',
+  warehouseId: 'warehouseId',
+  quantity: 'quantity',
+  minQuantity: 'minQuantity',
+  maxQuantity: 'maxQuantity',
+  note: 'note',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StockScalarFieldEnum = (typeof StockScalarFieldEnum)[keyof typeof StockScalarFieldEnum]
 
 
 export const PosSaleScalarFieldEnum = {

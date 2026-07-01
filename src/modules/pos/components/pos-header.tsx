@@ -8,12 +8,14 @@ import {
   saleStatusVariants,
 } from "../constants";
 
-import type { PosSaleStatus } from "@/generated/prisma/client";
+import type {
+  SaleStatus,
+} from "../types";
 
 type PosHeaderProps = {
   saleNumber: string;
 
-  status: PosSaleStatus;
+  status: SaleStatus;
 
   cashier: string;
 

@@ -73,6 +73,11 @@ export type Customer = Prisma.CustomerModel
  */
 export type Product = Prisma.ProductModel
 /**
+ * Model Stock
+ * 
+ */
+export type Stock = Prisma.StockModel
+/**
  * Model PosSale
  * 
  */

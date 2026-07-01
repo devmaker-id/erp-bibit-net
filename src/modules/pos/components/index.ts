@@ -9,6 +9,7 @@ export * from "./pos-header";
 export * from "./pos-layout";
 export * from "./pos-page";
 export * from "./product-grid";
+export * from "./product-picker-dialog";
 export * from "./product-search";
 export * from "./receipt-dialog";
 export * from "./sale-item-row";

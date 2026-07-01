@@ -177,6 +177,10 @@ export const navigation: NavigationGroup[] = [
         icon: "shopping-cart",
         children: [
           {
+            title: "POS",
+            href: "/pos",
+          },
+          {
             title: "Penawaran",
             href: "/quotes",
           },

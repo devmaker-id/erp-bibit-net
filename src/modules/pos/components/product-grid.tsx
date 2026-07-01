@@ -11,7 +11,7 @@ type Product = {
 
   price: number;
 
-  stock: number;
+  stock?: number;
 };
 
 type ProductGridProps = {
@@ -65,10 +65,13 @@ export function ProductGrid({
                 )}
               </p>
 
-              <p className="text-xs text-muted-foreground">
-                Stock:{" "}
-                {product.stock}
-              </p>
+              {typeof product.stock ===
+                "number" && (
+                <p className="text-xs text-muted-foreground">
+                  Stock:{" "}
+                  {product.stock}
+                </p>
+              )}
             </div>
           </Button>
         )

@@ -6,11 +6,12 @@ import {
 } from "lucide-react";
 
 import {
-  PosSaleStatus,
-} from "@/generated/prisma/client";
+  SaleStatus,
+  type SaleStatus as SaleStatusType,
+} from "../types";
 
 export const saleStatusLabels: Record<
-  PosSaleStatus,
+  SaleStatusType,
   string
 > = {
   DRAFT: "Draft",
@@ -25,7 +26,7 @@ export const saleStatusLabels: Record<
 };
 
 export const saleStatusVariants: Record<
-  PosSaleStatus,
+  SaleStatusType,
   | "default"
   | "secondary"
   | "destructive"
@@ -43,7 +44,7 @@ export const saleStatusVariants: Record<
 };
 
 export const saleStatusIcons: Record<
-  PosSaleStatus,
+  SaleStatusType,
   typeof CircleDashed
 > = {
   DRAFT: CircleDashed,
@@ -60,7 +61,7 @@ export const saleStatusIcons: Record<
 export const saleStatusOptions = [
   {
     value:
-      PosSaleStatus.DRAFT,
+      SaleStatus.DRAFT,
 
     label:
       saleStatusLabels.DRAFT,
@@ -68,7 +69,7 @@ export const saleStatusOptions = [
 
   {
     value:
-      PosSaleStatus.CHECKOUT,
+      SaleStatus.CHECKOUT,
 
     label:
       saleStatusLabels.CHECKOUT,
@@ -76,7 +77,7 @@ export const saleStatusOptions = [
 
   {
     value:
-      PosSaleStatus.PAID,
+      SaleStatus.PAID,
 
     label:
       saleStatusLabels.PAID,
@@ -84,7 +85,7 @@ export const saleStatusOptions = [
 
   {
     value:
-      PosSaleStatus.COMPLETED,
+      SaleStatus.COMPLETED,
 
     label:
       saleStatusLabels.COMPLETED,
@@ -92,7 +93,7 @@ export const saleStatusOptions = [
 
   {
     value:
-      PosSaleStatus.CANCELLED,
+      SaleStatus.CANCELLED,
 
     label:
       saleStatusLabels.CANCELLED,

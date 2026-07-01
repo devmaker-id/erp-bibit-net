@@ -476,10 +476,10 @@ export type PosSaleScalarWhereWithAggregatesInput = {
 export type PosSaleCreateInput = {
   id?: string
   number: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -506,10 +506,10 @@ export type PosSaleUncheckedCreateInput = {
   branchId: string
   warehouseId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -578,10 +578,10 @@ export type PosSaleCreateManyInput = {
   branchId: string
   warehouseId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1015,10 +1015,10 @@ export type PosSaleUpdateOneRequiredWithoutPaymentsNestedInput = {
 export type PosSaleCreateWithoutCompanyInput = {
   id?: string
   number: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1043,10 +1043,10 @@ export type PosSaleUncheckedCreateWithoutCompanyInput = {
   branchId: string
   warehouseId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1112,10 +1112,10 @@ export type PosSaleScalarWhereInput = {
 export type PosSaleCreateWithoutBranchInput = {
   id?: string
   number: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1140,10 +1140,10 @@ export type PosSaleUncheckedCreateWithoutBranchInput = {
   companyId: string
   warehouseId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1184,10 +1184,10 @@ export type PosSaleUpdateManyWithWhereWithoutBranchInput = {
 export type PosSaleCreateWithoutWarehouseInput = {
   id?: string
   number: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1212,10 +1212,10 @@ export type PosSaleUncheckedCreateWithoutWarehouseInput = {
   companyId: string
   branchId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1256,10 +1256,10 @@ export type PosSaleUpdateManyWithWhereWithoutWarehouseInput = {
 export type PosSaleCreateWithoutCashierInput = {
   id?: string
   number: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1284,10 +1284,10 @@ export type PosSaleUncheckedCreateWithoutCashierInput = {
   companyId: string
   branchId: string
   warehouseId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1328,10 +1328,10 @@ export type PosSaleUpdateManyWithWhereWithoutCashierInput = {
 export type PosSaleCreateWithoutMembershipInput = {
   id?: string
   number: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1356,10 +1356,10 @@ export type PosSaleUncheckedCreateWithoutMembershipInput = {
   branchId: string
   warehouseId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1400,10 +1400,10 @@ export type PosSaleUpdateManyWithWhereWithoutMembershipInput = {
 export type PosSaleCreateWithoutCustomerInput = {
   id?: string
   number: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1428,10 +1428,10 @@ export type PosSaleUncheckedCreateWithoutCustomerInput = {
   branchId: string
   warehouseId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1472,10 +1472,10 @@ export type PosSaleUpdateManyWithWhereWithoutCustomerInput = {
 export type PosSaleCreateWithoutItemsInput = {
   id?: string
   number: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1501,10 +1501,10 @@ export type PosSaleUncheckedCreateWithoutItemsInput = {
   branchId: string
   warehouseId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1580,10 +1580,10 @@ export type PosSaleUncheckedUpdateWithoutItemsInput = {
 export type PosSaleCreateWithoutPaymentsInput = {
   id?: string
   number: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1609,10 +1609,10 @@ export type PosSaleUncheckedCreateWithoutPaymentsInput = {
   branchId: string
   warehouseId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1693,10 +1693,10 @@ export type PosSaleCreateManyCompanyInput = {
   branchId: string
   warehouseId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1781,10 +1781,10 @@ export type PosSaleCreateManyBranchInput = {
   companyId: string
   warehouseId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1869,10 +1869,10 @@ export type PosSaleCreateManyWarehouseInput = {
   companyId: string
   branchId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -1957,10 +1957,10 @@ export type PosSaleCreateManyCashierInput = {
   companyId: string
   branchId: string
   warehouseId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -2045,10 +2045,10 @@ export type PosSaleCreateManyMembershipInput = {
   branchId: string
   warehouseId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
@@ -2133,10 +2133,10 @@ export type PosSaleCreateManyCustomerInput = {
   branchId: string
   warehouseId: string
   cashierId: string
-  subtotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   discount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   tax?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  grandTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  grandTotal?: runtime.Decimal | runtime.DecimalJsLike | number | string
   paidAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   changeAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   status?: $Enums.PosSaleStatus
