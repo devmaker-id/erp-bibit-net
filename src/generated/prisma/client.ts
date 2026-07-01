@@ -86,3 +86,28 @@ export type Membership = Prisma.MembershipModel
  * 
  */
 export type Session = Prisma.SessionModel
+/**
+ * Model Customer
+ * 
+ */
+export type Customer = Prisma.CustomerModel
+/**
+ * Model Product
+ * 
+ */
+export type Product = Prisma.ProductModel
+/**
+ * Model PosSale
+ * 
+ */
+export type PosSale = Prisma.PosSaleModel
+/**
+ * Model PosSaleItem
+ * 
+ */
+export type PosSaleItem = Prisma.PosSaleItemModel
+/**
+ * Model PosPayment
+ * 
+ */
+export type PosPayment = Prisma.PosPaymentModel

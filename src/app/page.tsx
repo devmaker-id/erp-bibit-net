@@ -7,6 +7,8 @@ export default async function CatchAllPage() {
 
   if (!session) {
     redirect("/login");
+  } else if (session) {
+    redirect("/dashboard");
   }
 
   notFound();

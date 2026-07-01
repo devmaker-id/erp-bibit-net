@@ -7,184 +7,195 @@ datasource db {
   provider = "postgresql"
 }
 
+enum PosSaleStatus {
+  DRAFT
+  CHECKOUT
+  PAID
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  CASH
+  QRIS
+  TRANSFER
+  DEBIT_CARD
+  CREDIT_CARD
+}
+
 model Company {
-  id            String    @id @default(cuid())
+  id String @id @default(cuid())
 
-  code          String
-  name          String
-  legalName     String?
+  code      String
+  name      String
+  legalName String?
 
-  email         String?
-  phone         String?
-  website       String?
+  email   String?
+  phone   String?
+  website String?
 
-  taxNumber     String?
+  taxNumber String?
 
-  address       String?
-  city          String?
-  province      String?
-  postalCode    String?
-  countryCode   String?
+  address     String?
+  city        String?
+  province    String?
+  postalCode  String?
+  countryCode String?
 
-  timezone      String?
-  currencyCode  String?
+  timezone     String?
+  currencyCode String?
 
-  logo          String?
-  description   String?
+  logo        String?
+  description String?
 
-  isActive      Boolean   @default(true)
+  isActive Boolean @default(true)
 
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  deletedAt     DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
 
-  branches      Branch[]
-  warehouses    Warehouse[]
-  memberships   Membership[]
+  sales       PosSale[]
+  branches    Branch[]
+  warehouses  Warehouse[]
+  memberships Membership[]
 
   @@unique([code])
-
   @@map("companies")
 }
 
 model Branch {
-  id String @id @default(cuid())
-  companyId String
-  code String
-  name String
-  email String?
-  phone String?
-  address String?
-  city String?
-  province String?
-  postalCode String?
+  id          String  @id @default(cuid())
+  companyId   String
+  code        String
+  name        String
+  email       String?
+  phone       String?
+  address     String?
+  city        String?
+  province    String?
+  postalCode  String?
   countryCode String?
-  timezone String?
+  timezone    String?
   description String?
 
-  isHeadOffice Boolean @default(false)
-  isActive Boolean @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  deletedAt DateTime?
-  company Company @relation(fields:[companyId], references:[id])
-  
-  warehouses Warehouse[]
+  isHeadOffice Boolean   @default(false)
+  isActive     Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  deletedAt    DateTime?
+  company      Company   @relation(fields: [companyId], references: [id])
+
+  warehouses  Warehouse[]
   memberships Membership[]
+  sales       PosSale[]
 
   @@unique([companyId, code], name: "companyId_code")
   @@index([companyId])
   @@index([companyId, isActive])
-
   @@map("branches")
 }
 
 model Warehouse {
-  id String @id @default(cuid())
-  companyId String
-  branchId String
-  code String
-  name String
+  id          String    @id @default(cuid())
+  companyId   String
+  branchId    String
+  code        String
+  name        String
   description String?
-  isActive Boolean @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  deletedAt DateTime?
-  company Company @relation(fields:[companyId], references:[id])
-  branch Branch @relation(fields:[branchId], references:[id])
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+  company     Company   @relation(fields: [companyId], references: [id])
+  branch      Branch    @relation(fields: [branchId], references: [id])
+
+  sales PosSale[]
 
   @@unique([companyId, branchId, code], name: "companyId_branchId_code")
   @@index([companyId, isActive])
   @@index([branchId, isActive])
   @@index([companyId])
   @@index([branchId])
-
   @@map("warehouses")
 }
 
 model Permission {
-  id          String   @id @default(cuid())
+  id String @id @default(cuid())
 
-  code        String
-  name        String
+  code String
+  name String
 
-  module      String
-  group       String
+  module String
+  group  String
 
   description String?
 
-  sortOrder   Int      @default(0)
+  sortOrder Int @default(0)
 
-  isSystem    Boolean  @default(true)
-  isActive    Boolean  @default(true)
+  isSystem Boolean @default(true)
+  isActive Boolean @default(true)
 
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  deletedAt   DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
 
   rolePermissions RolePermission[]
 
   @@unique([code])
-
   @@index([module])
   @@index([group])
   @@index([isActive])
   @@index([module, group])
   @@index([module, group, sortOrder])
-
   @@map("permissions")
 }
 
 model Role {
   id String @id @default(cuid())
 
-  code String
-  name String
+  code        String
+  name        String
   description String?
 
-  level Int @default(0)
+  level     Int @default(0)
   sortOrder Int @default(0)
 
   isSystem Boolean @default(true)
   isActive Boolean @default(true)
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   deletedAt DateTime?
 
   rolePermissions RolePermission[]
-  memberships Membership[]
+  memberships     Membership[]
 
   @@unique([code])
-
   @@index([level])
   @@index([sortOrder])
   @@index([isActive])
   @@index([level, isActive])
-
   @@map("roles")
 }
 
 model RolePermission {
   id String @id @default(cuid())
 
-  roleId String
+  roleId       String
   permissionId String
 
   grantedById String?
-  grantedAt DateTime @default(now())
+  grantedAt   DateTime @default(now())
 
   isActive Boolean @default(true)
 
-  role Role @relation(fields: [roleId], references: [id])
+  role       Role       @relation(fields: [roleId], references: [id])
   permission Permission @relation(fields: [permissionId], references: [id])
 
   @@unique([roleId, permissionId])
-
   @@index([roleId])
   @@index([permissionId])
   @@index([isActive])
-
   @@map("role_permissions")
 }
 
@@ -192,86 +203,84 @@ model User {
   id String @id @default(cuid())
 
   username String?
-  email String
+  email    String
   password String
 
   firstName String
-  lastName String?
+  lastName  String?
 
   avatar String?
-  phone String?
+  phone  String?
 
   emailVerifiedAt DateTime?
 
   lastLoginAt DateTime?
   lastLoginIp String?
 
-  failedLoginAttempts Int @default(0)
-  lockedAt DateTime?
+  failedLoginAttempts Int       @default(0)
+  lockedAt            DateTime?
 
   isSystem Boolean @default(false)
   isActive Boolean @default(true)
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   deletedAt DateTime?
 
   memberships Membership[]
-  sessions Session[]
+  sessions    Session[]
+  sales       PosSale[]
 
   @@unique([username])
   @@unique([email])
-
   @@index([username])
   @@index([email])
   @@index([isActive])
-
   @@map("users")
 }
 
 model Membership {
   id String @id @default(cuid())
 
-  userId String
+  userId    String
   companyId String
-  branchId String
-  roleId String
+  branchId  String
+  roleId    String
 
   employeeNumber String?
-  title String?
+  title          String?
 
-  joinedAt DateTime @default(now())
+  joinedAt   DateTime  @default(now())
   resignedAt DateTime?
 
   sessions Session[]
+  sales    PosSale[]
 
   isDefault Boolean @default(false)
-  isActive Boolean @default(true)
+  isActive  Boolean @default(true)
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   deletedAt DateTime?
 
-  user User @relation(fields: [userId], references: [id])
+  user    User    @relation(fields: [userId], references: [id])
   company Company @relation(fields: [companyId], references: [id])
-  branch Branch @relation(fields: [branchId], references: [id])
-  role Role @relation(fields: [roleId], references: [id])
+  branch  Branch  @relation(fields: [branchId], references: [id])
+  role    Role    @relation(fields: [roleId], references: [id])
 
   @@unique([userId, companyId, branchId, roleId])
-
   @@index([userId, isDefault])
   @@index([companyId, branchId])
   @@index([branchId])
   @@index([roleId])
   @@index([isActive])
-
   @@map("memberships")
 }
 
 model Session {
   id String @id @default(cuid())
 
-  userId String
+  userId       String
   membershipId String
 
   sessionToken String
@@ -279,21 +288,159 @@ model Session {
   ipAddress String?
   userAgent String?
 
-  expiresAt DateTime
+  expiresAt      DateTime
   lastActivityAt DateTime?
-  revokedAt DateTime?
+  revokedAt      DateTime?
 
   isActive Boolean @default(true)
 
-  user User @relation(fields: [userId], references: [id])
+  user       User       @relation(fields: [userId], references: [id])
   membership Membership @relation(fields: [membershipId], references: [id])
 
   @@unique([sessionToken])
-
   @@index([userId])
   @@index([membershipId])
   @@index([expiresAt])
   @@index([isActive])
-
   @@map("sessions")
+}
+
+model Customer {
+  id String @id @default(cuid())
+
+  code String
+
+  name String
+
+  phone String?
+
+  email String?
+
+  address String?
+
+  isActive Boolean @default(true)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  sales PosSale[]
+
+  @@unique([code])
+  @@map("customers")
+}
+
+model Product {
+  id String @id @default(cuid())
+
+  code String
+
+  barcode String?
+
+  name String
+
+  price Decimal @db.Decimal(18, 2)
+
+  isActive Boolean @default(true)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  saleItems PosSaleItem[]
+
+  @@unique([code])
+  @@map("products")
+}
+
+model PosSale {
+  id String @id @default(cuid())
+
+  number String
+
+  customerId String?
+
+  membershipId String
+
+  companyId String
+
+  branchId String
+
+  warehouseId String
+
+  cashierId String
+
+  subtotal Decimal @default(0) @db.Decimal(18, 2)
+
+  discount Decimal @default(0) @db.Decimal(18, 2)
+
+  tax Decimal @default(0) @db.Decimal(18, 2)
+
+  grandTotal Decimal @default(0) @db.Decimal(18, 2)
+
+  paidAmount Decimal @default(0) @db.Decimal(18, 2)
+
+  changeAmount Decimal @default(0) @db.Decimal(18, 2)
+
+  status PosSaleStatus @default(DRAFT)
+
+  note String?
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  customer   Customer?  @relation(fields: [customerId], references: [id])
+  membership Membership @relation(fields: [membershipId], references: [id])
+  cashier    User       @relation(fields: [cashierId], references: [id])
+  company    Company    @relation(fields: [companyId], references: [id])
+  branch     Branch     @relation(fields: [branchId], references: [id])
+  warehouse  Warehouse  @relation(fields: [warehouseId], references: [id])
+
+  items PosSaleItem[]
+
+  payments PosPayment[]
+
+  @@unique([number])
+  @@map("pos_sales")
+}
+
+model PosSaleItem {
+  id String @id @default(cuid())
+
+  saleId String
+
+  productId String
+
+  quantity Decimal @db.Decimal(18, 3)
+
+  price Decimal @db.Decimal(18, 2)
+
+  discount Decimal @default(0) @db.Decimal(18, 2)
+
+  subtotal Decimal @db.Decimal(18, 2)
+
+  sale PosSale @relation(fields: [saleId], references: [id])
+
+  product Product @relation(fields: [productId], references: [id])
+
+  @@map("pos_sale_items")
+}
+
+model PosPayment {
+  id String @id @default(cuid())
+
+  saleId String
+
+  method PaymentMethod
+
+  amount Decimal @db.Decimal(18, 2)
+
+  referenceNumber String?
+
+  createdAt DateTime @default(now())
+
+  sale PosSale @relation(fields: [saleId], references: [id])
+
+  @@map("pos_payments")
 }

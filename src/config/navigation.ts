@@ -40,24 +40,26 @@ export const navigation: NavigationGroup[] = [
     title: "Organisasi",
     items: [
       {
-        title: "Perusahaan",
-        href: "/companies",
+        title: "Master Organisasi",
         icon: "building-2",
-      },
-      {
-        title: "Cabang",
-        href: "/branches",
-        icon: "building-2",
-      },
-      {
-        title: "Gudang",
-        href: "/warehouses",
-        icon: "warehouse",
-      },
-      {
-        title: "Keanggotaan",
-        href: "/memberships",
-        icon: "building-2",
+        children: [
+          {
+            title: "Perusahaan",
+            href: "/companies",
+          },
+          {
+            title: "Cabang",
+            href: "/branches",
+          },
+          {
+            title: "Gudang",
+            href: "/warehouses",
+          },
+          {
+            title: "Keanggotaan",
+            href: "/memberships",
+          },
+        ],
       },
     ],
   },
@@ -66,29 +68,30 @@ export const navigation: NavigationGroup[] = [
     title: "Hak Akses",
     items: [
       {
-        title: "Hak Akses",
-        href: "/permissions",
+        title: "Manajemen Akses",
         icon: "settings",
-      },
-      {
-        title: "Peran",
-        href: "/roles",
-        icon: "settings",
-      },
-      {
-        title: "Hak Akses Peran",
-        href: "/role-permissions",
-        icon: "settings",
-      },
-      {
-        title: "Pengguna",
-        href: "/users",
-        icon: "settings",
-      },
-      {
-        title: "Sesi Login",
-        href: "/sessions",
-        icon: "settings",
+        children: [
+          {
+            title: "Hak Akses",
+            href: "/permissions",
+          },
+          {
+            title: "Peran",
+            href: "/roles",
+          },
+          {
+            title: "Hak Akses Peran",
+            href: "/role-permissions",
+          },
+          {
+            title: "Pengguna",
+            href: "/users",
+          },
+          {
+            title: "Sesi Login",
+            href: "/sessions",
+          },
+        ],
       },
     ],
   },
@@ -97,76 +100,114 @@ export const navigation: NavigationGroup[] = [
     title: "Master Data",
     items: [
       {
-        title: "Satuan",
-        href: "/units",
+        title: "Master Barang",
         icon: "package",
+        children: [
+          {
+            title: "Satuan",
+            href: "/units",
+          },
+          {
+            title: "Kategori",
+            href: "/categories",
+          },
+          {
+            title: "Merek",
+            href: "/brands",
+          },
+          {
+            title: "Produk",
+            href: "/products",
+          },
+        ],
       },
+
       {
-        title: "Kategori",
-        href: "/categories",
-        icon: "package",
-      },
-      {
-        title: "Merek",
-        href: "/brands",
-        icon: "package",
-      },
-      {
-        title: "Produk",
-        href: "/products",
-        icon: "package",
-      },
-      {
-        title: "Supplier",
-        href: "/suppliers",
-        icon: "package",
-      },
-      {
-        title: "Pelanggan",
-        href: "/customers",
-        icon: "package",
+        title: "Master Relasi",
+        icon: "building-2",
+        children: [
+          {
+            title: "Supplier",
+            href: "/suppliers",
+          },
+          {
+            title: "Pelanggan",
+            href: "/customers",
+          },
+        ],
       },
     ],
   },
-
   {
     title: "Persediaan",
     items: [
       {
-        title: "Stok",
-        href: "/stocks",
-        icon: "shopping-cart",
-      },
-      {
-        title: "Pergerakan Stok",
-        href: "/stock-movements",
-        icon: "shopping-cart",
-      },
-      {
-        title: "Penyesuaian Stok",
-        href: "/stock-adjustments",
-        icon: "shopping-cart",
-      },
-      {
-        title: "Transfer Stok",
-        href: "/stock-transfers",
-        icon: "shopping-cart",
-      },
-      {
-        title: "Stok Opname",
-        href: "/stock-opnames",
-        icon: "shopping-cart",
+        title: "Manajemen Stok",
+        icon: "warehouse",
+        children: [
+          {
+            title: "Stok",
+            href: "/stocks",
+          },
+          {
+            title: "Pergerakan Stok",
+            href: "/stock-movements",
+          },
+          {
+            title: "Penyesuaian Stok",
+            href: "/stock-adjustments",
+          },
+          {
+            title: "Transfer Stok",
+            href: "/stock-transfers",
+          },
+          {
+            title: "Stok Opname",
+            href: "/stock-opnames",
+          },
+        ],
       },
     ],
   },
-
+  {
+    title: "Penjualan",
+    items: [
+      {
+        title: "Manajemen Penjualan",
+        icon: "shopping-cart",
+        children: [
+          {
+            title: "Penawaran",
+            href: "/quotes",
+          },
+          {
+            title: "Pesanan Penjualan",
+            href: "/sales-orders",
+          },
+          {
+            title: "Pengiriman Penjualan",
+            href: "/sales-deliveries",
+          },
+          {
+            title: "Faktur Penjualan",
+            href: "/sales-invoices",
+          },
+        ],
+      },
+    ],
+  },
   {
     title: "Sistem",
     items: [
       {
         title: "Pengaturan",
-        href: "/settings",
         icon: "settings",
+        children: [
+          {
+            title: "Pengaturan Sistem",
+            href: "/settings",
+          },
+        ],
       },
     ],
   },

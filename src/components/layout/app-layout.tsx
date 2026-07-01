@@ -17,14 +17,14 @@ export function AppLayout({
 }: AppLayoutProps) {
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen bg-muted/30">
+      <div className="flex h-screen overflow-hidden">
         <Sidebar auth={auth} />
 
-        <div className="flex flex-1 flex-col">
+        <div className="flex min-w-0 flex-1 flex-col">
           <AppHeader auth={auth} />
 
           <main className="flex-1 overflow-y-auto">
-              <div className="mx-auto w-full max-w-7xl p-8">
+              <div className="mx-auto w-full max-w-7xl p-4">
                   {children}
               </div>
           </main>

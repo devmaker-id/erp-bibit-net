@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 import type { AuthSession } from "@/modules/auth/contracts";
 import type { NavigationItem as NavigationItemType } from "@/config/navigation";
+import { NavigationCollapse } from "./navigation-collapse";
 
 import { cn } from "@/lib/utils";
 import { hasPermission } from "@/modules/auth/permissions/permission";
@@ -19,6 +20,14 @@ export function NavigationItem({
   item,
   auth,
 }: NavigationItemProps) {
+  if (item.children?.length) {
+  return (
+    <NavigationCollapse
+      item={item}
+      auth={auth}
+    />
+  );
+}
   const pathname = usePathname();
 
   if (item.permission && !hasPermission(auth, item.permission)) {

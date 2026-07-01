@@ -59,7 +59,12 @@ export const ModelName = {
   RolePermission: 'RolePermission',
   User: 'User',
   Membership: 'Membership',
-  Session: 'Session'
+  Session: 'Session',
+  Customer: 'Customer',
+  Product: 'Product',
+  PosSale: 'PosSale',
+  PosSaleItem: 'PosSaleItem',
+  PosPayment: 'PosPayment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -250,6 +255,87 @@ export const SessionScalarFieldEnum = {
 } as const
 
 export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
+
+
+export const CustomerScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  phone: 'phone',
+  email: 'email',
+  address: 'address',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type CustomerScalarFieldEnum = (typeof CustomerScalarFieldEnum)[keyof typeof CustomerScalarFieldEnum]
+
+
+export const ProductScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  barcode: 'barcode',
+  name: 'name',
+  price: 'price',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
+
+
+export const PosSaleScalarFieldEnum = {
+  id: 'id',
+  number: 'number',
+  customerId: 'customerId',
+  membershipId: 'membershipId',
+  companyId: 'companyId',
+  branchId: 'branchId',
+  warehouseId: 'warehouseId',
+  cashierId: 'cashierId',
+  subtotal: 'subtotal',
+  discount: 'discount',
+  tax: 'tax',
+  grandTotal: 'grandTotal',
+  paidAmount: 'paidAmount',
+  changeAmount: 'changeAmount',
+  status: 'status',
+  note: 'note',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type PosSaleScalarFieldEnum = (typeof PosSaleScalarFieldEnum)[keyof typeof PosSaleScalarFieldEnum]
+
+
+export const PosSaleItemScalarFieldEnum = {
+  id: 'id',
+  saleId: 'saleId',
+  productId: 'productId',
+  quantity: 'quantity',
+  price: 'price',
+  discount: 'discount',
+  subtotal: 'subtotal'
+} as const
+
+export type PosSaleItemScalarFieldEnum = (typeof PosSaleItemScalarFieldEnum)[keyof typeof PosSaleItemScalarFieldEnum]
+
+
+export const PosPaymentScalarFieldEnum = {
+  id: 'id',
+  saleId: 'saleId',
+  method: 'method',
+  amount: 'amount',
+  referenceNumber: 'referenceNumber',
+  createdAt: 'createdAt'
+} as const
+
+export type PosPaymentScalarFieldEnum = (typeof PosPaymentScalarFieldEnum)[keyof typeof PosPaymentScalarFieldEnum]
 
 
 export const SortOrder = {

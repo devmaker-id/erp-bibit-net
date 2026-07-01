@@ -12,10 +12,20 @@ export function SidebarDesktop({
   auth,
 }: SidebarDesktopProps) {
   return (
-    <aside className="hidden h-screen w-72 shrink-0 border-r bg-background lg:flex lg:flex-col">
+    <aside className="
+      hidden
+        lg:flex
+        lg:w-[220px]
+        xl:w-[240px]
+        h-screen
+        shrink-0
+        flex-col
+        border-r
+        bg-background
+    ">
       <SidebarHeader />
 
-      <div className="flex-1 overflow-hidden">
+      <div className="flex-1 overflow-auto">
         <SidebarContent auth={auth} />
       </div>
 

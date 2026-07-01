@@ -10,7 +10,7 @@ export function SidebarFooter({
   auth,
 }: SidebarFooterProps) {
   return (
-    <footer className="border-t bg-background p-4">
+    <footer className="border-t bg-background p-2">
       <ProfileMenu auth={auth} />
     </footer>
   );
